@@ -9,7 +9,7 @@ class IEnhancedUserDataSchema(IUserDataSchema):
     """ Use all the fields from the default user data schema, and add various
     extra fields.
     """
-    token = schema.TextLine(
+    oauth_token = schema.TextLine(
         title=_(u'label_token', default=u'Token'),
         description=_(u'help_token',
                       default=u"oAuth2 Token"),
