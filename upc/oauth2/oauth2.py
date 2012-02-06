@@ -6,6 +6,7 @@ from zope.component import adapts
 import requests
 import json
 
+
 class oauthTokenRetriever(object):
     implements(IPreauthTask)
     adapts(IPreauthHelper)
@@ -14,7 +15,6 @@ class oauthTokenRetriever(object):
         self.context = context
 
     def execute(self, credentials):
-        print "hola"
         user = credentials.get('login')
         password = credentials.get('password')
 
@@ -35,13 +35,3 @@ class oauthTokenRetriever(object):
         pm = getToolByName(self.context, "portal_membership")
         member = pm.getMemberById(user)
         member.setMemberProperties({'oauth_token': oauth_token})
-
-        # import ipdb; ipdb.set_trace( )
-        # Do something
-        # users = self.users
-        # if not users:
-        #     return
-        # userid = users.authenticate(login, pw)
-        # if userid:
-        #     logger.info('logged in %s' % userid)
-        #     return (userid, login)
