@@ -21,7 +21,7 @@ class oauthTokenRetriever(object):
         if user == "admin":
             return
 
-        payload = {"grant_type": "password",
+        payload = {"grant_type": password,
                    "client_id": "MAX",
                    "scope": "widgetcli",
                    "username": user,
